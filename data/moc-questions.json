@@ -1,0 +1,100 @@
+{
+  "evaluation_questions": [
+    {
+      "id": "q01",
+      "question": "Why was the Atlas launch moved to August?",
+      "type": "multi_hop",
+      "expected_answer": "Atlas ranking depends on Beacon click events, and Beacon's cutover slipped from April 30 to July 15 because the schema registry rejected backward-incompatible Avro schemas.",
+      "supporting_documents": ["doc07", "doc01"],
+      "supporting_entities": ["pr01", "pr02", "d08"]
+    },
+    {
+      "id": "q02",
+      "question": "Why didn't the team use pgvector for Atlas?",
+      "type": "passage_detail",
+      "expected_answer": "Load tests at 40 million vectors showed p95 latency above 300 ms, far over the 80 ms budget.",
+      "supporting_documents": ["doc03"],
+      "supporting_entities": ["d01", "t01"]
+    },
+    {
+      "id": "q03",
+      "question": "Who should I contact about Kafka consumer lag in the pipeline that Atlas depends on?",
+      "type": "multi_hop",
+      "expected_answer": "Hana Kobayashi first, then Arjun Patel (Beacon is the dependency; both work on it and have Kafka experience).",
+      "supporting_documents": ["doc02", "doc01"],
+      "supporting_entities": ["pr01", "pr02", "p07", "p02", "t02"]
+    },
+    {
+      "id": "q04",
+      "question": "Which projects are affected by decisions Fatima Al-Sayed proposed?",
+      "type": "aggregation",
+      "expected_answer": "Citadel, Beacon, and Echo (via the Vault mandate, d03).",
+      "supporting_documents": ["doc04"],
+      "supporting_entities": ["p09", "d03", "pr03", "pr02", "pr05"]
+    },
+    {
+      "id": "q05",
+      "question": "How much did hybrid search improve relevance over vector-only search?",
+      "type": "passage_detail",
+      "expected_answer": "nDCG@10 rose from 0.61 (vector-only) to 0.68 (hybrid with reciprocal rank fusion).",
+      "supporting_documents": ["doc10"],
+      "supporting_entities": ["d05"]
+    },
+    {
+      "id": "q06",
+      "question": "What is the current status of Drift?",
+      "type": "temporal",
+      "expected_answer": "On hold since March 1, 2026; a June 15 decision (superseding the pause) has it resuming October 5, 2026 with Daniel Brooks as lead.",
+      "supporting_documents": ["doc05", "doc11"],
+      "supporting_entities": ["pr04", "d04", "d09", "p08"]
+    },
+    {
+      "id": "q07",
+      "question": "Which people have both Python and LLM evaluation skills?",
+      "type": "aggregation",
+      "expected_answer": "Lena Okafor and Priya Nair.",
+      "supporting_documents": [],
+      "supporting_entities": ["s01", "s12", "p03", "p05"]
+    },
+    {
+      "id": "q08",
+      "question": "What incident happened during the Citadel rollout?",
+      "type": "passage_detail",
+      "expected_answer": "On May 6, 2026, a rotation of Airflow metadata credentials broke Beacon's Airflow connections for about three hours because the old secret was revoked too early.",
+      "supporting_documents": ["doc08"],
+      "supporting_entities": ["pr03", "pr02", "t03"]
+    },
+    {
+      "id": "q09",
+      "question": "Which tools does Echo rely on, directly or through its project dependencies?",
+      "type": "multi_hop",
+      "expected_answer": "Directly: Weaviate and Airflow. Via Atlas: PostgreSQL (and Weaviate). Via Citadel: HashiCorp Vault, AWS EKS, GitHub Actions.",
+      "supporting_documents": ["doc06", "doc01", "doc08"],
+      "supporting_entities": ["pr05", "pr01", "pr03", "t08", "t03", "t01", "t06", "t05", "t10"]
+    },
+    {
+      "id": "q10",
+      "question": "Can Echo answer questions about parental leave?",
+      "type": "passage_detail",
+      "expected_answer": "No. HR, compensation, and performance documents are excluded from Echo's index; leave questions are redirected to the HR portal.",
+      "supporting_documents": ["doc06"],
+      "supporting_entities": ["d06", "pr05"]
+    },
+    {
+      "id": "q11",
+      "question": "Who approved the move from RabbitMQ to Kafka?",
+      "type": "single_hop",
+      "expected_answer": "Priya Nair.",
+      "supporting_documents": [],
+      "supporting_entities": ["d02", "p05"]
+    },
+    {
+      "id": "q12",
+      "question": "Which of Maya Chen's direct reports work on Atlas?",
+      "type": "multi_hop",
+      "expected_answer": "Arjun Patel and Tomás Rivera.",
+      "supporting_documents": ["doc01"],
+      "supporting_entities": ["p01", "p02", "p04", "pr01"]
+    }
+  ]
+}
